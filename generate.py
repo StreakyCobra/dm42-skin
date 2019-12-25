@@ -74,8 +74,8 @@ def gen_headers():
     """Generate the headers of the layout file."""
     lines = [
         "# DM42 skin for the Free42 simulator",
-        "https://github.com/StreakyCobra/dm42-skin"
-        "By Fabien Dubosson <fabien.dubosson@gmail.com>",
+        "# https://github.com/StreakyCobra/dm42-skin",
+        "# By Fabien Dubosson <fabien.dubosson@gmail.com>",
     ]
     return "\n".join(lines)
 
