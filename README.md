@@ -3,6 +3,8 @@
 This repository contains the sources for generating a [DM42][] skin for the
 [Free42 simulator][].
 
+![thumbnail](thumbnail.png)
+
 ## Quick install
 
 1. Download the desired skin from the [releases page][] (see Notes below
