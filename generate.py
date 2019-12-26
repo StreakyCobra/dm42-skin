@@ -155,6 +155,8 @@ def as_str(obj):
     """Return an object as string recursively."""
     if hasattr(obj, "items"):
         return {k: as_str(v) for k, v in obj.items()}
+    if type(obj) == str:
+        return '"' + obj + '"'
     try:
         return [as_str(v) for v in obj]
     except TypeError:
