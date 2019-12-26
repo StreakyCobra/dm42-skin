@@ -1,0 +1,10 @@
+2019-12-26 Fabien Dubosson <fabien.dubosson@gmail.com>:
+
+	* Version: 1.1
+	* Fixed the position of the battery indicator
+	* Changed the behavior of the 2 first rows of keys to mimic DM42 better
+	* Added the version number and magnification parameters in the layout files
+
+2019-12-25 Fabien Dubosson <fabien.dubosson@gmail.com>:
+
+	* Version: 1.0
