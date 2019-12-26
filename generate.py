@@ -52,7 +52,7 @@ def generate_layout(mx, my, filename):
     # Generate the layout file
     with open(filename, "w") as f:
         write = partial(print, file=f)
-        write(gen_headers())
+        write(gen_headers(mx, my, data))
         write()
         write(gen_skin(coef))
         write(gen_display(mx, my, coef))
@@ -70,12 +70,13 @@ def generate_layout(mx, my, filename):
 # --------------------------------------------------------------------------- #
 
 
-def gen_headers():
+def gen_headers(mx, my, data):
     """Generate the headers of the layout file."""
     lines = [
         "# DM42 skin for the Free42 simulator",
-        "# https://github.com/StreakyCobra/dm42-skin",
         "# By Fabien Dubosson <fabien.dubosson@gmail.com>",
+        "# https://github.com/StreakyCobra/dm42-skin",
+        "# Version: " + data["version"] + f", magnifications: {mx} {my}",
     ]
     return "\n".join(lines)
 
