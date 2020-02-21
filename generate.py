@@ -4,6 +4,7 @@
 import json
 import os
 import sys
+from copy import deepcopy
 from functools import partial
 
 from PIL import Image
@@ -100,6 +101,7 @@ def gen_keys(data, coef):
     """Generate the «Key» lines of the layout file."""
     keys = data.get("keys", {})
     keys = {i: expend_key_data(v) for i, v in keys.items()}
+    keys = {i: add_border_sensitivity(v) for i, v in keys.items()}
     keys = {i: scale(v, coef, as_str=True) for i, v in keys.items()}
     keys = [
         f"Key: {i} "
@@ -164,13 +166,22 @@ def compute_coef(mx, my):
     return (mx * ORIG_HP42_WIDTH) / DISPLAY_WIDTH
 
 
+def add_border_sensitivity(key):
+    """Add a border to key sensitivity area."""
+    key["sensitivity"][0] -= 60
+    key["sensitivity"][1] -= 80
+    key["sensitivity"][2] += 60 + 60
+    key["sensitivity"][3] += 80 + 80
+    return key
+
+
 def expend_key_data(key):
     """Expend key data in case of missing information."""
     if "display" not in key:
-        key["display"] = key["sensitivity"]
+        key["display"] = deepcopy(key["sensitivity"])
     if "active" not in key:
         key["active"] = [
-            key["sensitivity"][0],
+            deepcopy(key["sensitivity"][0]),
             SKIN_ACTIVE_SHIFT + key["sensitivity"][1],
         ]
     return key
