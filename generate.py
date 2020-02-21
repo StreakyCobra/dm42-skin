@@ -83,7 +83,7 @@ def gen_headers(mx, my, data):
 
 def gen_skin(coef):
     """Generate the «Skin» line of the layout file."""
-    skin = [scale_str(v, coef) for v in [0, 0, SKIN_WIDTH, SKIN_HEIGHT]]
+    skin = [scale(v, coef, as_str=True) for v in [0, 0, SKIN_WIDTH, SKIN_HEIGHT]]
     return f"Skin: {','.join(skin)}"
 
 
@@ -100,7 +100,7 @@ def gen_keys(data, coef):
     """Generate the «Key» lines of the layout file."""
     keys = data.get("keys", {})
     keys = {i: expend_key_data(v) for i, v in keys.items()}
-    keys = {i: scale_str(v, coef) for i, v in keys.items()}
+    keys = {i: scale(v, coef, as_str=True) for i, v in keys.items()}
     keys = [
         f"Key: {i} "
         + ",".join(k["sensitivity"])
@@ -123,7 +123,7 @@ def gen_macros(data):
 def gen_annunciators(data, coef):
     """Generate the «Annunciator» lines of the layout file."""
     annunciators = data.get("annunciators", {})
-    annunciators = {i: scale_str(v, coef) for i, v in annunciators.items()}
+    annunciators = {i: scale(v, coef, as_str=True) for i, v in annunciators.items()}
     annunciators = [
         f"Annunciator: {i} " + ",".join(k["rectangle"]) + " " + ",".join(k["active"])
         for i, k in annunciators.items()
@@ -145,11 +145,6 @@ def scale(obj, coef, as_str=False):
         return [scale(v, coef, as_str) for v in obj]
     except TypeError:
         return f(round(obj * coef))
-
-
-def scale_str(obj, coef):
-    """Scale a object with the given coefficient and return it as str."""
-    return scale(obj, coef, as_str=True)
 
 
 def as_str(obj):
