@@ -1,7 +1,7 @@
 # High-resolution DM42 skin for the Free42 simulator
 
 This repository contains a high-resolution [DM42][] skin for the [Free42
-simulator][].
+simulator][]. This is a [labor of love](#for-the-curious-how-was-it-done).
 
 ![thumbnail](thumbnail.png)
 
@@ -60,6 +60,25 @@ branch](https://github.com/StreakyCobra/dm42-skin/tree/releases).
    [Free42 skin folder][].
 
 4. Select the newly installed skin in the Free42 simulator.
+
+## For the curious: How was it done?
+
+A 6000×4000 pixels picture of the calculator has been taken with a Sony α7-III
+in one of these lightweight led-powered photography box. The picture has been
+cropped and the perspective manually corrected to have the calculator picture as
+"orthogonal" as possible. Several hours of fine-tuning in Gimp followed, to fix
+small imperfections, to correct light, to remove noise, to enhance texts, etc.
+but without going too far to avoid removing the real-look feel of the skin. The
+background has been removed and replaced with transparent pixels. The
+annunciators have been recreated in Inkscape for a better look. A second "layer"
+has been added to the GIF with keys slightly grayed to offer a nice visual
+effect when they are pressed. The position of each key has been manually looked
+in the full-resolution picture and saved in a JSON file to allow making resized
+version of the skin. A Python script has been made to generate both the resized
+version of the GIF as well as the layout file that goes with it. The DM42 has
+an additional row of key at the top, offering direct access to the row below
+when menu buttons are shown on the screen. The layout file is built in a way to
+allow the same behavior in Free 42 with this skin.
 
 ## Notes
 
