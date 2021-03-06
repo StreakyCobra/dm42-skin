@@ -9,14 +9,14 @@ from functools import partial
 
 from PIL import Image
 
-# Original size in pixels of the HP42
+# Original size in pixels of the HP42 screen
 ORIG_HP42_WIDTH = 131
 ORIG_HP42_HEIGHT = 16
 
 # File containing the layout data
 LAYOUT_FILENAME = "dm42.json"
 
-# The skin of the DM42
+# The name and size information of the original GIF
 SKIN_FILENAME = "dm42.png"
 SKIN_WIDTH = 2903
 SKIN_HEIGHT = 5462
@@ -31,13 +31,15 @@ DISPLAY_BACKGROUND = "caccc9"
 
 
 # --------------------------------------------------------------------------- #
-# CREATE SKIN FILES                                                           #
+# TOP LEVEL FUNCTIONS                                                         #
 # --------------------------------------------------------------------------- #
 
 
 def resize_image(mx, my, filename):
     """Resize the skin image to fit the given x and y magnification."""
+    # Compute the scaling coefficient
     coef = compute_coef(mx, my)
+    # Scale the original give to desired size
     img = Image.open(SKIN_FILENAME)
     size = [scale(v, coef) for v in img.size]
     img.resize(size).save(filename, "GIF", optimize=True)
