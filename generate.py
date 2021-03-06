@@ -29,6 +29,10 @@ DISPLAY_BOTTOM = 1713
 DISPLAY_FOREGROUND = "2c302e"
 DISPLAY_BACKGROUND = "caccc9"
 
+# Sensitivity border around keys
+SENSING_BORDER_H = 60
+SENSING_BORDER_V = 80
+
 
 # --------------------------------------------------------------------------- #
 # TOP LEVEL FUNCTIONS                                                         #
@@ -170,10 +174,10 @@ def compute_coef(mx, my):
 
 def add_border_sensitivity(key):
     """Add a border to key sensitivity area."""
-    key["sensitivity"][0] -= 60
-    key["sensitivity"][1] -= 80
-    key["sensitivity"][2] += 60 + 60
-    key["sensitivity"][3] += 80 + 80
+    key["sensitivity"][0] -= SENSING_BORDER_H
+    key["sensitivity"][1] -= SENSING_BORDER_V 
+    key["sensitivity"][2] += SENSING_BORDER_H + SENSING_BORDER_H
+    key["sensitivity"][3] += SENSING_BORDER_V + SENSING_BORDER_V
     return key
 
 
