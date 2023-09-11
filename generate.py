@@ -29,6 +29,12 @@ DISPLAY_BOTTOM = 1713
 DISPLAY_FOREGROUND = "2c302e"
 DISPLAY_BACKGROUND = "caccc9"
 
+# Information about the screen (for plus42)
+SCREEN_USABLE_HEIGHT = 1024
+SCREEN_USABLE_LINES = 7
+SCREEN_TOP = 689
+PIXEL_SIZE = 8
+
 # Sensitivity border around keys
 SENSING_BORDER_H = 60
 SENSING_BORDER_V = 80
@@ -98,8 +104,10 @@ def gen_display(mx, my, coef):
     """Generate the «Display» line of the layout file."""
     left = scale(DISPLAY_LEFT, coef)
     top = round(DISPLAY_BOTTOM * coef - ORIG_HP42_HEIGHT * my)
+    pixel_scale_y = SCREEN_USABLE_HEIGHT / SCREEN_USABLE_LINES / PIXEL_SIZE
     return (
-        f"Display: {left},{top} {mx} {my} " f"{DISPLAY_BACKGROUND} {DISPLAY_FOREGROUND}"
+        f"Display: {left},{top} {mx} {my} {DISPLAY_BACKGROUND} {DISPLAY_FOREGROUND}\n"
+        f"DisplaySize: 22,{SCREEN_USABLE_LINES} {scale(SCREEN_TOP, coef)} {int(pixel_scale_y * coef)}"
     )
 
 

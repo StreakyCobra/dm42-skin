@@ -1,28 +1,31 @@
 # High-resolution DM42 skin for the Free42 simulator
 
-This repository contains a high-resolution [DM42][] skin for the [Free42
-simulator][]. This is a [labor of love](#for-the-curious-how-was-it-done).
+This repository contains a high-resolution [DM42][] skin for the [Free42][] and
+[Plus42][] simulators. This is a [labor of love](#for-the-curious-how-was-it-done).
 
-![thumbnail](thumbnail.png)
+![thumbnail free42](thumbnail_free42.png)
+![thumbnail plus42](thumbnail_plus42.png)
 
-If you are a RPN lover, the combination of a [DM42][] and the [Free42
-simulator][] with this skin offers you both a beautiful physical device that you
-can keep on your desk, and the same beautiful calculator virtually with you all
-the time on your phone. It is the last calculator you will ever need!
+If you are a RPN/RPL lover, the combination of a [DM42][] and the [Free42][] (or
+[Plus42][]) simulator together with this skin offers you both a beautiful
+physical device that you can keep on your desk, and the same beautiful
+calculator virtually with you all the time on your phone. It is the last
+calculator you will ever need!
 
-[DM42]: https://www.swissmicros.com/dm42.php
-[Free42 simulator]: https://thomasokken.com/free42/
+[DM42]: https://www.swissmicros.com/product/dm42
+[Free42]: https://thomasokken.com/free42/
+[Plus42]: https://thomasokken.com/plus42/
 
 ## Installation
 
 ### Quick installation on mobile
 
-1. [Install Free42][].
+1. [Install Free42][] or [Install Plus42][].
 
 2. Go to Main Menu -> Select Skin -> Load, and use the [following
-   URL](https://raw.githubusercontent.com/StreakyCobra/dm42-skin/releases/v1.3/dm42_12.layout):
+   URL](https://raw.githubusercontent.com/StreakyCobra/dm42-skin/releases/v1.4/dm42_12.layout):
 
-       https://raw.githubusercontent.com/StreakyCobra/dm42-skin/releases/v1.3/dm42_12.layout
+       https://raw.githubusercontent.com/StreakyCobra/dm42-skin/releases/v1.4/dm42_12.layout
 
 This URL points to a high-resolution skin. This looks really nice on mobile but
 this may be an issue for old phones. If this is a problem, smaller skins are
@@ -31,7 +34,7 @@ branch](https://github.com/StreakyCobra/dm42-skin/tree/releases).
 
 ### General installation method
 
-1. [Install Free42][].
+1. [Install Free42][] or [Install Plus42][].
 
 2. Download the desired skin files from the [releases page][] (see
    [Notes](#Notes) below regarding the sizes).
@@ -41,6 +44,7 @@ branch](https://github.com/StreakyCobra/dm42-skin/tree/releases).
 4. Select the newly installed skin in the Free42 simulator.
 
 [Install Free42]: https://thomasokken.com/free42/#downloads
+[Install Plus42]: https://thomasokken.com/plus42/#downloads
 [releases page]: https://github.com/StreakyCobra/dm42-skin/releases
 [Free42 skin folder]: https://thomasokken.com/free42/skins/README.html
 
@@ -113,3 +117,7 @@ magnification can be used to make vertically taller (or smaller) digits on
 screen, but it does not have impact on the skin size. If omitted if defaults to
 twice the `x` magnification. Finally the skin name can be optionally passed to
 give meaningful names to your skins.
+
+The adaptive screen size for [Plus42][] is subject to some rounding that shows
+off as content not using the whole screen at some scale. The size 12 for mobile
+works quite well though.
